@@ -28,5 +28,14 @@ stage("Release"){
 	'''
 }
 } 
+
+stage("NEWAPP"){
+	steps {
+	sh '''
+        oc project eawiyl-greetings
+	oc new-app --docker-image quay.io/redhattraining/hello-world-nginx:v1.0 --name hello
+	'''
+}
+} 
     }
 }
